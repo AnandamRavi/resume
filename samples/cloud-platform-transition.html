@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Training to Transition to a New Cloud Platform — Anandam Ravi</title>
+<meta name="description" content="Case study: a step-by-step learning journey that eased Accenture Cloud Sales and Solutioning staff onto a new platform, with a 90% attendance rate.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --board:#1e2b23;
+    --board-dark:#16211a;
+    --chalk:#f2efe2;
+    --chalk-dim:#c9c6b6;
+    --chalk-yellow:#e8c468;
+    --chalk-coral:#e2725b;
+    --chalk-blue:#8fb9d6;
+    --rule:rgba(242,239,226,0.16);
+    --paper:#efe9d8;
+    --paper-line:#c9c1a3;
+    --ink:#2a2622;
+    --display: 'Caveat', cursive;
+    --body: 'Literata', Georgia, serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;background:var(--board);color:var(--chalk);
+    font-family:var(--body);line-height:1.7;-webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;border-radius:2px;}
+  .wrap{max-width:820px;margin:0 auto;padding:0 28px;}
+
+  header.site-nav{
+    position:sticky;top:0;z-index:50;
+    background:linear-gradient(180deg, var(--board) 80%, transparent);
+    border-bottom:1px solid var(--rule);
+  }
+  .nav-inner{max-width:820px;margin:0 auto;padding:16px 28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+  .brand{font-family:var(--display);font-size:1.5rem;text-decoration:none;color:var(--chalk);}
+  .brand em{font-style:normal;color:var(--chalk-yellow);}
+  .back-link{font-family:var(--mono);font-size:0.78rem;text-transform:uppercase;letter-spacing:0.06em;text-decoration:none;color:var(--chalk-dim);border-bottom:1px dashed transparent;padding-bottom:3px;}
+  .back-link:hover{color:var(--chalk-yellow);border-color:var(--chalk-yellow);}
+
+  .hero{padding:64px 0 20px;}
+  .eyebrow{font-family:var(--mono);font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--chalk-coral);display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--chalk-coral);display:inline-block;}
+  h1{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,5vw,3.2rem);line-height:1.08;margin:0 0 20px;color:var(--chalk);}
+  .lede{font-size:1.08rem;color:var(--chalk-dim);margin:0 0 36px;max-width:60ch;}
+
+  .hero-img{margin:0 0 50px;box-shadow:0 18px 40px rgba(0,0,0,0.4);}
+  .hero-img figcaption{font-family:var(--mono);font-size:0.74rem;color:var(--chalk-dim);margin-top:10px;text-align:center;}
+
+  section.block{padding:36px 0;border-top:1px dashed var(--rule);}
+  section.block:first-of-type{border-top:none;}
+  h2{font-family:var(--display);font-size:1.9rem;margin:0 0 18px;color:var(--chalk-yellow);}
+  ul{margin:0;padding-left:22px;}
+  li{margin-bottom:10px;color:var(--chalk);}
+  p{color:var(--chalk);margin:0 0 14px;}
+
+  .callout{
+    background:var(--paper);color:var(--ink);
+    padding:24px 26px;border-radius:2px;
+    box-shadow:0 14px 30px rgba(0,0,0,0.3);
+    margin:8px 0 4px;
+  }
+  .callout strong{color:var(--board);}
+
+  .step{
+    display:grid;grid-template-columns:52px 1fr;gap:18px;margin-bottom:30px;
+  }
+  .step .num{
+    font-family:var(--display);font-size:2.1rem;color:var(--chalk-coral);line-height:1;
+  }
+  .step h3{font-family:var(--body);font-weight:600;font-size:1.12rem;margin:0 0 8px;color:var(--chalk);}
+  .step p{color:var(--chalk-dim);margin:0;}
+  .step img{margin-top:14px;box-shadow:0 12px 26px rgba(0,0,0,0.35);}
+
+  .tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px;}
+  .tag{font-family:var(--mono);font-size:0.76rem;border:1px solid var(--chalk-blue);color:var(--chalk-blue);padding:6px 12px;border-radius:20px;}
+
+  .impact{
+    text-align:center;padding:44px 30px;border:1px dashed var(--rule);border-radius:4px;margin:40px 0 60px;
+  }
+  .impact .stat{font-family:var(--display);font-size:3.4rem;color:var(--chalk-yellow);line-height:1;}
+  .impact p{color:var(--chalk-dim);margin-top:10px;}
+
+  footer{background:var(--board-dark);padding:40px 0;border-top:1px solid var(--rule);}
+  .foot-inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:0.78rem;color:var(--chalk-dim);}
+  footer a{color:var(--chalk-yellow);text-decoration:none;border-bottom:1px solid var(--chalk-yellow);}
+
+  @media (max-width:640px){
+    .step{grid-template-columns:1fr;}
+    .step .num{font-size:1.6rem;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="../index.html" class="brand">Anandam<em>.</em></a>
+    <a class="back-link" href="../index.html#samples">← Back to samples</a>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="hero">
+      <span class="eyebrow">Case Study · Learning Journey Design</span>
+      <h1>Training to Transition to a New Cloud Platform</h1>
+      <p class="lede">My team and I worked on a series of trainings on one of Accenture's Cloud-based platforms, intended for employees in sales, advisory, and solution-architecting roles. Leadership wanted the target audience comfortable with the platform fast — and a complex new platform is always a little intimidating, so the program nudged learners step-by-step into getting their feet wet before the plunge.</p>
+    </div>
+
+    <figure class="hero-img">
+      <img src="https://anandamravi1.wordpress.com/wp-content/uploads/2023/05/mynav1.png" alt="Overview graphic of the cloud platform training journey">
+    </figure>
+
+    <section class="block">
+      <h2>The requirement</h2>
+      <ul>
+        <li>Inform managers and above in Cloud Sales and Solutioning of the capabilities in the new platform</li>
+        <li>Break through the barriers of using a new platform</li>
+        <li>Make the best use of Managers' and Senior Managers' time</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>The design</h2>
+      <ul>
+        <li>Used multiple tools and platforms in conjunction with each other</li>
+        <li>Used pre-assessments and practice scenarios with game elements</li>
+        <li>Made the core learning optional depending on learners' pre-existing knowledge and skills, reducing unnecessary seat time</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>My role</h2>
+      <div class="callout">
+        As <strong>Senior Instructional Design Lead</strong>, I managed a team of about 5 designers — bringing my knowledge of tools to the fore to help design a workable solution, reviewing my team's work, and partnering with Subject Matter Experts and stakeholders.
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Tools &amp; platforms</h2>
+      <div class="tags">
+        <span class="tag">Articulate Rise</span>
+        <span class="tag">Articulate Storyline</span>
+        <span class="tag">WordPress</span>
+        <span class="tag">SharePoint</span>
+        <span class="tag">myLearning (Accenture LMS)</span>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Detailed design</h2>
+
+      <figure class="hero-img">
+        <img src="https://anandamravi1.wordpress.com/wp-content/uploads/2023/05/mynav_1.png" alt="Detailed journey map of the training program">
+      </figure>
+
+      <div class="step">
+        <span class="num">1</span>
+        <div>
+          <h3>Warm Up</h3>
+          <p>Learners started their journey from a WordPress page, which directed them to other platforms — beginning with a pre-assessment quiz in a game-show format, built in Articulate Storyline and hosted on Accenture's LMS, myLearning. It included scoring, tracking, and recommended topics for learners to focus on.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">2</span>
+        <div>
+          <h3>Learn</h3>
+          <p>Video-intensive learning topics were built in Articulate Rise and hosted on the SharePoint site — untracked and completely optional.</p>
+          <img src="https://anandamravi1.wordpress.com/wp-content/uploads/2023/05/mynav_2.png" alt="Screenshot of the video-based learning module">
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">3</span>
+        <div>
+          <h3>Practice</h3>
+          <p>A Jeopardy-style quiz built in Articulate Storyline, including a self-scoring long-text question that measured similarity using the Sørensen–Dice coefficient, built into a bit of JavaScript. <em>Note: I'm not a JavaScript coder — I tweaked and reused code snippets from the generous Articulate community.</em></p>
+        </div>
+      </div>
+
+      <div class="step">
+        <span class="num">4</span>
+        <div>
+          <h3>Play</h3>
+          <p>An open-ended form, built in SharePoint, accessible only once every other component was successfully completed.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="impact">
+      <div class="stat">90%</div>
+      <p>Attendance rate, with strong positive feedback from both participants and stakeholders.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="year"></span> Anandam Ravi</span>
+    <a href="../index.html#samples">View more samples →</a>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
