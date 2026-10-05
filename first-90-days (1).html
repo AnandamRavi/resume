@@ -478,7 +478,7 @@ BOX | Outcome | outcome
       var lg = el('div', 'mix-legend'); lg.setAttribute('aria-hidden', 'true');
       MIXNAMES.forEach(function(n){ var s = el('span', n[2]); s.appendChild(el('i')); s.appendChild(document.createTextNode(n[1])); lg.appendChild(s); });
       mb.appendChild(lg);
-      inner.appendChild(mb);
+      
     }
     p.boxes.forEach(function(b){
       var bx = el('div', 'block reveal' + (b.outcome ? ' outcome' : ''));
@@ -486,6 +486,7 @@ BOX | Outcome | outcome
       bx.appendChild(list(b.items, b.cols ? 'cols' : ''));
       inner.appendChild(bx);
     });
+        if (mb) inner.appendChild(mb);
     body.appendChild(inner); art.appendChild(body);
     tl.appendChild(art);
 
