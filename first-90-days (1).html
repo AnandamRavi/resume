@@ -117,7 +117,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Literata:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Franklin:wght@700;800&display=swap" rel="stylesheet">
 <style>
   /* ==================== design code: no need to edit below ==================== */
   :root{
@@ -127,6 +127,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
     --rule:rgba(242,239,226,0.16);
     --paper:#efe9d8; --ink:#2a2622;
     --display:'Caveat', cursive;
+    --heading:'Libre Franklin', 'Helvetica Neue', Arial, sans-serif;
     --body:'Literata', Georgia, serif;
     --mono:'IBM Plex Mono', monospace;
     --people:#8fd3b6; --Operational:#c0b0e6; --Improvement:#f2a7c1;
@@ -167,6 +168,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   }
   .pill.c2{--c:var(--chalk-yellow);--crgb:232,196,104;}
   .pill.c3{--c:var(--chalk-coral);--crgb:226,114,91;}
+  .pill.c4{--c:#b79df0;--crgb:183,157,240;}
   .pill:hover{color:var(--chalk);}
   .pill.on{color:var(--chalk);border-color:var(--c);background:rgba(var(--crgb),0.16);font-weight:600;}
   .pill::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:calc(var(--pf,0) * 100%);background:var(--c);}
@@ -177,7 +179,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
     text-decoration:none;color:var(--chalk-dim);border-bottom:1px dashed transparent;padding-bottom:3px;transition:color .2s,border-color .2s;
   }
   .back-link:hover{color:var(--chalk-yellow);border-color:var(--chalk-yellow);}
-  @media (max-width:860px){ .pills{display:none;} .nav-inner{padding:11px 18px;} }
+  @media (max-width:1080px){ .pills{display:none;} .nav-inner{padding:11px 18px;} }
 
   /* ---------- HERO (kept short so the whole timeline shows on first screen) ---------- */
   .hero{padding-top:34px;padding-bottom:26px;position:relative;z-index:2;}
@@ -186,7 +188,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
     color:var(--chalk-blue);display:flex;align-items:center;gap:10px;margin-bottom:12px;
   }
   .eyebrow::before{content:"";width:26px;height:1px;background:var(--chalk-blue);display:inline-block;}
-  .hero h1{font-family:var(--display);font-weight:700;font-size:clamp(2.3rem,5vw,3.6rem);line-height:1.05;margin:0 0 12px;}
+  .hero h1{font-family:var(--heading);font-weight:800;font-size:clamp(1.8rem,3.8vw,2.6rem);line-height:1.1;letter-spacing:-0.02em;margin:0 0 12px;}
   .hl{color:var(--chalk-yellow);}
   .underline-draw{position:relative;display:inline-block;}
   .underline-draw svg{position:absolute;left:0;bottom:-6px;width:100%;height:14px;overflow:visible;}
@@ -205,6 +207,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   }
   .phase.p2{--accent:var(--chalk-yellow);--accent-rgb:232,196,104;--accent-ink:#7d5f0b;}
   .phase.p3{--accent:var(--chalk-coral);--accent-rgb:226,114,91;--accent-ink:#a8402b;}
+  .phase.p4{--accent:#b79df0;--accent-rgb:183,157,240;--accent-ink:#5b3fa0;}
 
   /* spine: dashed track, filled with colour up to where you are */
   .phase::before{
@@ -248,7 +251,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   .phase-toggle{display:block;width:100%;text-align:left;background:none;border:0;padding:0 76px 0 0;cursor:pointer;}
   .phase-toggle:focus-visible{outline:2px dashed var(--accent);outline-offset:6px;}
   .days{display:block;font-family:var(--mono);font-size:0.74rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent);line-height:1.5;}
-  .name{display:block;font-family:var(--display);font-weight:700;font-size:clamp(2rem,4.4vw,2.8rem);line-height:1.05;}
+  .name{display:block;font-family:var(--heading);font-weight:700;font-size:clamp(1.3rem,2.7vw,1.7rem);line-height:1.15;letter-spacing:-0.01em;}
   .sub{display:block;font-style:italic;color:var(--chalk-dim);font-size:1rem;line-height:1.4;margin-top:2px;}
   .chev{
     position:absolute;right:26px;top:50%;width:16px;height:16px;margin-top:-12px;
@@ -280,7 +283,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   .block{position:relative;background:var(--paper);color:var(--ink);border-radius:2px;padding:26px 30px 22px;margin:0 0 34px;max-width:800px;box-shadow:0 14px 30px rgba(0,0,0,0.35);}
   .block:nth-child(odd){rotate:-0.35deg;} .block:nth-child(even){rotate:0.3deg;}
   .block::before{content:"";position:absolute;top:-12px;left:30px;width:80px;height:24px;background:rgba(var(--accent-rgb),0.9);transform:rotate(-3deg);box-shadow:0 3px 6px rgba(0,0,0,0.25);}
-  .block h3{font-family:var(--display);font-size:2.2rem;line-height:1;margin:0 0 12px;color:var(--ink);font-weight:700;}
+  .block h3{font-family:var(--heading);font-size:1.45rem;line-height:1.15;letter-spacing:-0.01em;margin:0 0 14px;color:var(--ink);font-weight:700;}
   ol.steps{list-style:none;counter-reset:s;margin:0;padding:0;}
   ol.steps li{counter-increment:s;position:relative;padding-left:2.2rem;margin:0 0 .6rem;font-size:1.02rem;}
   ol.steps li::before{content:counter(s) ".";position:absolute;left:0;top:.28em;font-family:var(--mono);font-size:0.8rem;font-weight:600;color:var(--accent-ink);}
@@ -298,10 +301,10 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   .reveal.in{opacity:1;transform:none;}
   .reveal li{opacity:0;transform:translateX(-10px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.in li{opacity:1;transform:none;transition-delay:calc(260ms + var(--i,0) * 90ms);}
-  .closing{max-width:800px;margin:6px 0 34px;padding:24px 30px 18px;border-left:5px solid var(--chalk-yellow);background:rgba(232,196,104,0.10);border-radius:2px;}
-  .closing h3{font-family:var(--display);font-size:2.4rem;line-height:1;margin:0 0 12px;color:var(--chalk-yellow);font-weight:700;}
+  .closing{max-width:800px;margin:6px 0 34px;padding:24px 30px 18px;border-left:5px solid var(--accent);background:rgba(var(--accent-rgb),0.10);border-radius:2px;}
+  .closing h3{font-family:var(--heading);font-size:1.6rem;line-height:1.15;letter-spacing:-0.01em;margin:0 0 14px;color:var(--accent);font-weight:700;}
   .closing ol.steps li{font-size:1.1rem;}
-  .closing ol.steps li::before{color:var(--chalk-yellow);}
+  .closing ol.steps li::before{color:var(--accent);}
   footer{position:relative;z-index:2;border-top:1px dashed var(--rule);padding:30px 0 50px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:0.78rem;color:var(--chalk-dim);}
   footer a{text-decoration:none;} footer a:hover{color:var(--chalk-yellow);}
   noscript p{padding:24px;color:var(--chalk-yellow);font-family:var(--mono);}
@@ -424,7 +427,8 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   var DOODLES = [
     '<circle cx="20" cy="20" r="12"/><path d="M29 29 L42 42"/><path d="M13 18 a8 8 0 0 1 6-6"/>',
     '<circle cx="17" cy="24" r="12"/><circle cx="31" cy="24" r="12"/>',
-    '<path d="M8 41 L10 31 L32 9 L39 16 L17 38 Z"/><path d="M28 13 L35 20"/><path d="M8 41 L17 38"/>'
+    '<path d="M8 41 L10 31 L32 9 L39 16 L17 38 Z"/><path d="M28 13 L35 20"/><path d="M8 41 L17 38"/>',
+    '<path d="M7 26 L31 10 L36 18 L12 34 Z"/><path d="M31 10 L40 5 L43 11 L36 18"/><path d="M7 26 L4 31 L9 38 L12 34"/><path d="M21 24 L15 43"/><path d="M21 24 L28 43"/>'
   ];
   var MIXNAMES = [['People','People Leadership','people'],['Operational','Operational Delivery','Operational'],['Improvement','Continuous Improvement','Improvement']];
 
@@ -453,7 +457,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   var pillBox = document.getElementById('pills');
 
   data.phases.forEach(function(p, i){
-    var art = el('article', 'phase p' + ((i % 3) + 1));
+    var art = el('article', 'phase p' + (i < 3 ? i + 1 : 4));
     art.id = 'phase-' + (i + 1);
     var node = el('div', 'node'); node.appendChild(el('span', null, String(i + 1)));
     art.appendChild(node);
@@ -507,7 +511,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
     body.appendChild(inner); art.appendChild(body);
     tl.appendChild(art);
 
-    var pill = el('button', 'pill c' + ((i % 3) + 1), (i + 1) + ' · ' + p.name);
+    var pill = el('button', 'pill c' + (i < 3 ? i + 1 : 4), (i + 1) + ' · ' + p.name);
     pill.type = 'button'; pillBox.appendChild(pill);
   });
 
@@ -521,7 +525,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
   var marker  = document.getElementById('marker');
   var dayread = document.getElementById('dayread');
   var N = phases.length, DUR = 650;
-  var ACC = [['#8fb9d6','143,185,214'],['#e8c468','232,196,104'],['#e2725b','226,114,91']];
+  var ACC = [['#8fb9d6','143,185,214'],['#e8c468','232,196,104'],['#e2725b','226,114,91'],['#b79df0','183,157,240']];
 
   var active = -1;     
     if (data.closing && data.closing.length){
@@ -596,7 +600,7 @@ PHASE |  After Day 90 | Continue to Learn and Adapt |
       pills[i].style.setProperty('--pf', pf.toFixed(3));
       if (y >= s - 1){ cur = i; curF = pf; }
     });
-    var a = ACC[cur % 3];
+    var a = ACC[Math.min(cur, 3)];
     marker.style.setProperty('--ma', a[0]); marker.style.setProperty('--mrgb', a[1]);
     var per = 90 / N;
     dayread.textContent = 'Day ' + Math.round(per * cur + 1 + curF * (per - 1)) + ' of 90';
