@@ -15,7 +15,7 @@
 // ===================== EDIT YOUR TEXT HERE =====================
 // Rules (the whole format):
 //   * Lines starting with // are notes to yourself and are ignored.
-//   * PHASE | days | name | subtitle | people %, Operational %, Improvement %
+//   * PHASE | days | name | subtitle | People %, Operational %, Improvement %
 //   * BOX   | title                 (add  | columns  for two columns,
 //                                    | outcome  for the dashed "Outcome" style)
 //   * A line starting with "- " is a bullet. Numbers are added for you.
@@ -101,6 +101,12 @@ BOX | Start developing
 BOX | Outcome | outcome
 - Completed first draft of my version of the curriculum framework
 - Project plan for courses scheduled for development in the next few months
+
+  CLOSING | After day 90
+- I think it's important to keep the learner mindset throughout, not just the initial months into a new role - the learning landscape keeps shifting and it's important that we stay ahead of the curve.
+- The company's priorities will always be reflected in everything I do.
+- My team will always have my ear and will be important to me.
+- The time spent on People, Business and Improvement may vary as the priorities demand, but none will ever drop below at least 15% at any point of time.
 </script>
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -291,7 +297,10 @@ BOX | Outcome | outcome
   .reveal.in{opacity:1;transform:none;}
   .reveal li{opacity:0;transform:translateX(-10px);transition:opacity .5s ease,transform .5s ease;}
   .reveal.in li{opacity:1;transform:none;transition-delay:calc(260ms + var(--i,0) * 90ms);}
-
+  .closing{max-width:800px;margin:6px 0 34px;padding:24px 30px 18px;border-left:5px solid var(--chalk-yellow);background:rgba(232,196,104,0.10);border-radius:2px;}
+  .closing h3{font-family:var(--display);font-size:2.4rem;line-height:1;margin:0 0 12px;color:var(--chalk-yellow);font-weight:700;}
+  .closing ol.steps li{font-size:1.1rem;}
+  .closing ol.steps li::before{color:var(--chalk-yellow);}
   footer{position:relative;z-index:2;border-top:1px dashed var(--rule);padding:30px 0 50px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-family:var(--mono);font-size:0.78rem;color:var(--chalk-dim);}
   footer a{text-decoration:none;} footer a:hover{color:var(--chalk-yellow);}
   noscript p{padding:24px;color:var(--chalk-yellow);font-family:var(--mono);}
@@ -363,7 +372,7 @@ BOX | Outcome | outcome
     src.split(/\r?\n/).forEach(function(raw){
       var line = raw.replace(/\s+$/, ''), t = line.trim();
       if (!t || t.indexOf('//') === 0) return;
-      var m = /^(EYEBROW|HEADLINE|INTRO|PHASE|BOX)\s*\|\s*(.*)$/.exec(t);
+      var m = /^(EYEBROW|HEADLINE|INTRO|PHASE|BOX|CLOSING)\s*\|\s*(.*)$/.exec(t);
       if (m){
         var parts = m[2].split('|').map(function(s){ return s.trim(); });
         last = null;
@@ -380,6 +389,10 @@ BOX | Outcome | outcome
           var opts = (parts[1] || '').toLowerCase();
           box = { title:parts[0]||'', cols:/column/.test(opts), outcome:/outcome/.test(opts), items:[] };
           ph.boxes.push(box);
+        }
+                if (m[1] === 'CLOSING'){
+          box = { title: parts[0] || '', items: [] };
+          (d.closing = d.closing || []).push(box);
         }
         return;
       }
@@ -509,7 +522,18 @@ BOX | Outcome | outcome
   var N = phases.length, DUR = 650;
   var ACC = [['#8fb9d6','143,185,214'],['#e8c468','232,196,104'],['#e2725b','226,114,91']];
 
-  var active = -1;      // -1 = everything folded (the opening view)
+  var active = -1;     
+    if (data.closing && data.closing.length){
+    var lastInner = tl.querySelector('.phase:last-child .phase-body-inner');
+    data.closing.forEach(function(c){
+      if (!c.items.length) return;
+      var cl = el('div', 'closing reveal');
+      cl.appendChild(el('h3', null, c.title));
+      cl.appendChild(list(c.items));
+      lastInner.appendChild(cl);
+    });
+  }
+  // -1 = everything folded (the opening view)
   var busy = false, lock = false, lockTimer;
 
   [].forEach.call(tl.querySelectorAll('.reveal'), function(r){
