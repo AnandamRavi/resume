@@ -299,6 +299,13 @@
     padding:6px 12px;border-radius:20px;
   }
 
+  .tag-group{margin-top:16px;}
+  .tag-label{
+    font-family:var(--mono);font-size:0.7rem;
+    text-transform:uppercase;letter-spacing:0.1em;
+    color:var(--chalk-coral);display:block;margin-bottom:2px;
+  }
+
   /* TIMELINE / RESUME */
   .resume-panel{
     display:grid;
@@ -530,13 +537,21 @@ And oh yes, I like to express myself in rhyme!</pre>
             <div class="stat"><span class="num">3</span><span class="label">Formats — ILT / vILT / WBT</span></div>
           </div>
           <p>Tools &amp; platforms I reach for:</p>
-          <div class="tags">
-            <span class="tag">Articulate Storyline</span>
-            <span class="tag">Articulate Rise</span>
-            <span class="tag">PowerPoint (incl. macros)</span>
-            <span class="tag">D2L</span>
-            <span class="tag">ChatGPT</span>
-            <span class="tag">Program &amp; budget management</span>
+          <div class="tag-group">
+            <span class="tag-label">Authoring tools</span>
+            <div class="tags"><span class="tag">Articulate Storyline</span><span class="tag">Articulate Rise</span><span class="tag">Microsoft Office</span></div>
+          </div>
+          <div class="tag-group">
+            <span class="tag-label">Platforms</span>
+            <div class="tags"><span class="tag">Desire2Learn</span><span class="tag">Moodle</span></div>
+          </div>
+          <div class="tag-group">
+            <span class="tag-label">Video tools</span>
+            <div class="tags"><span class="tag">Synthesia</span><span class="tag">Google Flow</span><span class="tag">HeyGen</span></div>
+          </div>
+          <div class="tag-group">
+            <span class="tag-label">AI tools</span>
+            <div class="tags"><span class="tag">Claude</span><span class="tag">ChatGPT</span><span class="tag">Groq</span></div>
           </div>
         </div>
       </div>
